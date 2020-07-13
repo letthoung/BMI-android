@@ -1,5 +1,6 @@
 package com.example.bmi
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
             var bmi = weight / (weight * height)
             //resultsTextView.text = "BMI: " + String.format("%.2f",bmi)
             //resultsTextView.visibility = View.VISIBLE
+
+            val resultIntent = Intent(this,BMIResultsActivity:: class.java)
+            resultIntent.putExtra("result", String.format("%.2f", bmi))
+            startActivity(resultIntent)
         }
     }
 }
